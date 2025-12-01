@@ -1,4 +1,15 @@
-from aocd import data
+from aocd import get_data
+import argparse
+
+
+def cmd_line_arguments():
+    parser = argparse.ArgumentParser(description="Advent of Code Data Loader")
+    parser.add_argument('--day', type=int, required=True, help='Day of the challenge (1-12)')
+    parser.add_argument('--mode', type=str, choices=['test', 'live'], default='test', help='Mode to load data: test or live')
+    parser.add_argument('--part', type=str, choices=['a', 'b'], default='a', help='Part of the challenge: a or b')
+    parser.add_argument('--submit', action='store_true', help='Submit the answer to AoC (only in live mode)')
+    args = parser.parse_args()
+    return args.day, args.mode, args.part, args.submit
 
 def get_file_with_mode(day, mode='test'):
     print(f"Loading data for Day {day}, Mode: {mode}...\n")
@@ -20,9 +31,6 @@ def get_file_with_mode(day, mode='test'):
 
 
 
-def text_2_line_array(file_path):
-    print(f"Converting {file_path} to line array format...\n")
-    # Read the entire content of the file split into lines
-    with open(file_path, 'r') as file:
-        lines = file.readlines()
-    return lines
+def text_2_line_array(data):
+    print("Converting text to line array...\n")
+    return data.strip().split('\n')
