@@ -34,3 +34,7 @@ def get_file_with_mode(day, mode='test'):
 def text_2_line_array(data):
     print("Converting text to line array...\n")
     return data.strip().split('\n')
+
+def text_2_csv_array(data):
+    print("Converting text to CSV array...\n")
+    return [line.split(',') for line in data.strip().split('\n')]

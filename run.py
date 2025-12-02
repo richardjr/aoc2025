@@ -4,7 +4,7 @@ from aocd import submit
 
 if __name__ == "__main__":
     day, mode, part, sub = cmd_line_arguments()
-    input_data = get_file_with_mode(day=1, mode=mode)
+    input_data = get_file_with_mode(day=day, mode=mode)
 
     day_module = __import__(f'days.{day}', fromlist=[''])
 
