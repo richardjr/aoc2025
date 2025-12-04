@@ -38,3 +38,21 @@ def text_2_line_array(data):
 def text_2_csv_array(data):
     print("Converting text to CSV array...\n")
     return [line.split(',') for line in data.strip().split('\n')]
+
+def text_2_int_arrays(data):
+    print("Converting text to integer arrays...\n")
+    lines = data.strip().split('\n')
+    int_arrays = []
+    for line in lines:
+        int_array = [int(x) for x in line]
+        int_arrays.append(int_array)
+    return int_arrays
+
+def text_2_char_arrays(data):
+    print("Converting text to character arrays...\n")
+    lines = data.strip().split('\n')
+    char_arrays = []
+    for line in lines:
+        char_array = [x for x in line]
+        char_arrays.append(char_array)
+    return char_arrays
