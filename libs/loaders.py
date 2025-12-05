@@ -56,3 +56,18 @@ def text_2_char_arrays(data):
         char_array = [x for x in line]
         char_arrays.append(char_array)
     return char_arrays
+
+def text_2_2_lists(data):
+    # file has two sections separated by blank line
+    print("Converting text to 2 lists...\n")
+    lines = data.strip().split('\n')
+    list1 = []
+    list2 = []
+    current_list = list1
+    for line in lines:
+        if line.strip() == '':
+            current_list = list2
+            continue
+        current_list.append(line)
+    return list1, list2
+
