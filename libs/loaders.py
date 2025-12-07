@@ -71,3 +71,10 @@ def text_2_2_lists(data):
         current_list.append(line)
     return list1, list2
 
+def text_2_line_fixed(data):
+    print("Converting text to fixed line array...\n")
+    data=data.split('\n')
+    #kill last empty line if exists
+    if data[-1] == '':
+        data = data[:-1]
+    return data
